@@ -4,7 +4,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BooksModule } from './books/book.module';
-import { NotesModule } from './notes/note.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -21,7 +20,6 @@ import { NotesModule } from './notes/note.module';
       }),
     }),
     BooksModule,
-    NotesModule
   ],
   
   controllers: [AppController],
