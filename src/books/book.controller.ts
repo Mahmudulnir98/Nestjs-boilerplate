@@ -10,6 +10,11 @@ export class BookController {
         return this.BookService.getHello();
     }
 
+    @Get('back')
+    getBac(): string {
+        return this.BookService.getBack();
+    }
+
     @Post('/bye')
     getHel(): string {
         return this.BookService.getTake();
