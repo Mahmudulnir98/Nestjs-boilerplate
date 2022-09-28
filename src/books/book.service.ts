@@ -17,7 +17,7 @@ export class BookService {
 
     
     getNew():string {
-        return 'I wish I were a good backend developer';
+        return 'I wish I were a good backend developer and developer, I want to develop my self ';
     }
     
 }
