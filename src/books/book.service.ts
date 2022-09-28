@@ -14,5 +14,10 @@ export class BookService {
     getTake():string {
         return 'I wish I were a good backend developer';
     }
+
+    
+    getNew():string {
+        return 'I wish I were a good backend developer';
+    }
     
 }

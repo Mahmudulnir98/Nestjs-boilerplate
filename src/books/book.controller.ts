@@ -20,4 +20,8 @@ export class BookController {
         return this.BookService.getTake();
     }
     
+    @Post('/new')
+    getHell(): string {
+        return this.BookService.getNew();
+    }
 }
