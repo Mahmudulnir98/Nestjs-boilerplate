@@ -20,4 +20,7 @@ export class BookService {
         return 'I wish I were a good backend developer and developer, I want to develop my self ';
     }
     
+    putNew():string {
+        return 'Today I will learn about put method'
+    }
 }

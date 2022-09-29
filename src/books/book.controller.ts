@@ -1,8 +1,8 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Put } from '@nestjs/common';
 // import { AppService } from 'src/app.service';
 // import { AppService } from 'src/app.service';
 import { BookService } from "./book.service";
-@Controller('books')
+@Controller('/books')
 export class BookController {
     constructor(private readonly BookService: BookService) {}
     @Get('pages/one')
@@ -10,7 +10,7 @@ export class BookController {
         return this.BookService.getHello();
     }
 
-    @Get('back')
+    @Get('/back')
     getBac(): string {
         return this.BookService.getBack();
     }
@@ -24,4 +24,10 @@ export class BookController {
     getHell(): string {
         return this.BookService.getNew();
     }
+
+    @Put('/put')
+    puthello(): string {
+        return this.BookService.putNew();
+    }
+
 }
