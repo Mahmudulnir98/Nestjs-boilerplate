@@ -9,8 +9,23 @@ export class CreateBookDto {
     @IsNotEmpty()
     publishedYear: number;
 
+    @IsNumber()
+    @IsNotEmpty()
+    chapter: number;
+
+
+
     @IsString()
     @IsNotEmpty()
     author: string
+
+    @IsString()
+    @IsNotEmpty()
+    author2: string
+
+
+
+
+
 
 }
