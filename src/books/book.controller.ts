@@ -1,7 +1,9 @@
-import { Controller, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, Req } from '@nestjs/common';
+import { Request } from 'express';
 // import { AppService } from 'src/app.service';
 // import { AppService } from 'src/app.service';
 import { BookService } from "./book.service";
+import { CreateBookDto } from './dto/create-book.dto';
 @Controller('/books')
 export class BookController {
     constructor(private readonly BookService: BookService) {}
@@ -16,8 +18,11 @@ export class BookController {
     }
 
     @Post('/bye')
-    getHel(): string {
-        return this.BookService.getTake();
+    public async getHel(
+        @Req() req: Request,
+        @Body() createBookDto: CreateBookDto
+    ): Promise<string> {
+        return this.BookService.getTake(createBookDto);
     }
     
     @Post('/new')
