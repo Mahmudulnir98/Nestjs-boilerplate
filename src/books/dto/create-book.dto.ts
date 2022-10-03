@@ -24,8 +24,4 @@ export class CreateBookDto {
     author2: string
 
 
-
-
-
-
 }
