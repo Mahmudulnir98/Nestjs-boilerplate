@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { CreateBookDto } from './dto/create-book.dto';
-
+import {NewBookDto} from './dto/new-book.dto';
 @Injectable()
 export class BookService {
     getHello(): string {
@@ -22,7 +22,10 @@ export class BookService {
     }
 
     
-    getNew():string {
+    public async getNew(
+        newCreateData: NewBookDto
+    ): Promise<string> {
+        console.log('new create', newCreateData)
         return 'I wish I were a good backend developer and developer, I want to develop my self ';
     }
     

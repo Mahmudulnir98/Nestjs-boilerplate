@@ -4,6 +4,7 @@ import { Request } from 'express';
 // import { AppService } from 'src/app.service';
 import { BookService } from "./book.service";
 import { CreateBookDto } from './dto/create-book.dto';
+import {NewBookDto} from  './dto/create-book.dto'; //'./dto/new-book.dto';
 @Controller('/books')
 export class BookController {
     constructor(private readonly BookService: BookService) {}
@@ -26,8 +27,11 @@ export class BookController {
     }
     
     @Post('/new')
-    getHell(): string {
-        return this.BookService.getNew();
+    public async getHell(
+        @Req() req: Request,
+        @Body() newBookDto: NewBookDto
+    ): Promise<string> {
+        return this.BookService.getNew(newBookDto);
     }
 
     @Put('/put')
