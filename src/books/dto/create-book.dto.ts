@@ -36,5 +36,19 @@ export class NewBookDto {
 
     @IsString()
     @IsNotEmpty()
-    author: string
+    author: string;
+    
+    
+    
+    secondauthor: string
+
+    
+    
+    act: number
+
+
+
+    style: string
+
+
 }

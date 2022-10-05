@@ -8,7 +8,7 @@ import {NewBookDto} from  './dto/create-book.dto'; //'./dto/new-book.dto';
 @Controller('/books')
 export class BookController {
     constructor(private readonly BookService: BookService) {}
-    @Get('pages/one')
+    @Get('pages')
     getHello(): string {
         return this.BookService.getHello();
     }
