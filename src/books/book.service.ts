@@ -1,3 +1,4 @@
+import { IBooks } from './interfaces/books.interface';
 import { Injectable } from '@nestjs/common'
 import { CreateBookDto } from './dto/create-book.dto';
 import {NewBookDto} from './dto/new-book.dto';
@@ -31,5 +32,19 @@ export class BookService {
     
     putNew():string {
         return 'Today I will learn about put method'
+    }
+
+    //create book
+    public createBook(
+        createBookDto: CreateBookDto
+    ): IBooks{
+        const newBook: IBooks = {
+         name: createBookDto.name,
+         publishedYear: createBookDto.publishedYear,
+         author: createBookDto.author,
+         chapter: createBookDto.chapter   
+        }
+
+        return newBook
     }
 }

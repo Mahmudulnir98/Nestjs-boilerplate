@@ -19,36 +19,6 @@ export class CreateBookDto {
     @IsNotEmpty()
     author: string
 
-    @IsString()
-    @IsNotEmpty()
-    author2: string
-
-
-}
-export class NewBookDto {
-    @IsString()
-    @IsNotEmpty()
-    name: string;
-    
-    @IsNumber()
-    @IsNotEmpty()
-    chapter: number;
-
-    @IsString()
-    @IsNotEmpty()
-    author: string;
-    
-    
-    
-    secondauthor: string
-
-    
-    
-    act: number
-
-
-
-    style: string
 
 
 }
