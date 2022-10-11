@@ -1,7 +1,9 @@
 import { IBooks } from './interfaces/books.interface';
+import { NBooks } from './interfaces/post.interface';
 import { Injectable } from '@nestjs/common'
 import { CreateBookDto } from './dto/create-book.dto';
 import {NewBookDto} from './dto/new-book.dto';
+import { PostBookDto } from './dto/post-book.dto';
 @Injectable()
 export class BookService {
     getHello(): string {
@@ -46,5 +48,19 @@ export class BookService {
         }
 
         return newBook
+    }
+
+    //post book
+    public updateBook(
+        postBookDto: PostBookDto
+    ): NBooks{
+        const postBook: NBooks = {
+            name: postBookDto.name,
+            publishedYear: postBookDto.publishedYear,
+            author: postBookDto.author
+        }
+
+        return postBook
+
     }
 }
