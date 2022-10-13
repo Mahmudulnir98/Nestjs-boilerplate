@@ -1,3 +1,5 @@
+import { PutBookDto } from './dto/put-book.dto';
+import { PBooks } from './interfaces/put.interface';
 import { IBooks } from './interfaces/books.interface';
 import { NBooks } from './interfaces/post.interface';
 import { Body, Controller, Get, Post, Put, Req } from '@nestjs/common';
@@ -20,7 +22,7 @@ export class BookController {
     getBac(): string {
         return this.BookService.getBack();
     }
-
+  
     @Post('/create')
     public async createBook(
         @Req() req: Request,
@@ -32,17 +34,17 @@ export class BookController {
     @Post('/new')
     public async getHell(
         @Req() req: Request,
-        @Body() newBookDto: NewBookDto
+        @Body() NewBookDto: NewBookDto
     ): Promise<string> {
-        return this.BookService.getNew(newBookDto);
+        return this.BookService.getNew(NewBookDto);
     }
 
     @Post('/post')
     public async updateBook(
         @Req() req: Request,
-        @Body() PostBookDto: PostBookDto
+        @Body() postBookDto: PostBookDto
     ): Promise<NBooks> {
-        return this.BookService.updateBook(PostBookDto)
+        return this.BookService.updateBook(postBookDto)
     }
 
 
@@ -50,5 +52,13 @@ export class BookController {
     putello(): string {
         return this.BookService.putNew();
      }
+
+    @Put ('/put')
+    public async putBook(
+        @Req() req: Request,
+        @Body() PutBookDto: PutBookDto
+    ): Promise<PBooks> {
+        return this.BookService.putBook(PutBookDto)
+    }
 
 }
