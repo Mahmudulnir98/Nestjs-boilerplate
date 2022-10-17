@@ -1,39 +1,64 @@
-import { PassUserDto } from './dto/create-user.dto';
+import { CreateUserDto } from './dto/create-user.dto';
 import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { IUsers } from './interfaces/user.interface';
 import { PostUserDto } from './dto/post-user.dto';
 import { IPost } from './interfaces/post.interface';
+import { CreateNewUserDto } from './dto/create-user.dto';
+import { NUsers } from './interfaces/user.interface';
 @Injectable()
 export class UserService {
     constructor(
-        @InjectModel('User')
-        private readonly userModel: Model<IUsers>
+        @InjectModel('User') private readonly userModel: Model<IUsers>,
+
     ){}
-    
-    public updateBook( passUserDto: PassUserDto): IUsers {
-        const passUser: IUsers = {
-            name: passUserDto.name,
-            author: passUserDto.author,
-            plot: passUserDto.plot
+
+    //create user
+    public async createUser(createUserDto: CreateUserDto){
+        const newUser: IUsers = {
+            name: createUserDto.name,
+            author: createUserDto.author,
+            plot: createUserDto.plot,
+            email: createUserDto.email,
+            username: createUserDto.username
         }
 
-        return passUser
+        const user = await this.userModel.create(newUser)
+
+        console.log(user)
+
+        return user
 
     }
-    
-    public under( postUserDto: PostUserDto): IPost {
-        const underSchema: IUsers = {
-            name: postUserDto.name,
-            author: postUserDto.author,
-            plot: postUserDto.plot
+
+    // new create user
+
+    public async createNUser(createNewUserDto: CreateNewUserDto){
+        const newwUser: NUsers = {
+            name: createNewUserDto.name,
+            author: createNewUserDto.author,
+            plot: createNewUserDto.plot,
+            email: createNewUserDto.email,
+            username: createNewUserDto.username
         }
 
-        return underSchema
+        const nuser = await this.userModel.create(newwUser)
+
+        console.log(nuser)
+
+        return nuser
 
     }
-    
 
+
+    public async showAllUsers(){
+        const users = await this.userModel.find()
+
+        return users
+    }
+   
+    
+ 
  
 }
