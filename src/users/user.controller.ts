@@ -3,6 +3,7 @@ import { Body, Controller, Get, Post, Put, Req } from '@nestjs/common';
 import { UserService } from './user.service';
 import { Request } from 'express';
 import { IUsers } from './interfaces/user.interface';
+import { PostUserDto } from './dto/post-user.dto';
 // import { AppService } from 'src/app.service';
 // import { AppService } from 'src/app.service';
 @Controller('/users')
@@ -16,6 +17,15 @@ export class UserController {
     ): Promise<IUsers> {
         return this.UserService.updateBook(passUserDto)
     }
+
+    @Post('/pool')
+    public async under(
+        @Req() req: Request,
+        @Body() postUserDto: PostUserDto
+    ): Promise<IUsers> {
+        return this.UserService.under(postUserDto)
+    }
+
 
     
 
