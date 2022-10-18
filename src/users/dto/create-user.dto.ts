@@ -13,8 +13,6 @@ export class PassUserDto {
     @IsNotEmpty()
     plot: number
 
-
-
 }
 
 export class CreateUserDto{
@@ -37,7 +35,6 @@ export class CreateUserDto{
     @IsString()
     @IsNotEmpty()
     username: string
-
 
 }
 
@@ -62,5 +59,5 @@ export class CreateNewUserDto{
     @IsNotEmpty()
     username: string
 
-
 }
+

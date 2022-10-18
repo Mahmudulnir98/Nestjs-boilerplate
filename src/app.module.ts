@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BooksModule } from './books/book.module';
 import { UsersModule } from './users/user.module';
+import { LearnsModule } from './learns/learn.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -21,7 +22,8 @@ import { UsersModule } from './users/user.module';
       }),
     }),
     BooksModule,
-    UsersModule
+    UsersModule,
+    LearnsModule
   ],
   
   controllers: [AppController],
