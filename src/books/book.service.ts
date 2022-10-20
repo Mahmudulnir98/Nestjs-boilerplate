@@ -16,7 +16,21 @@ export class BookService {
         return 'Hello, This is Mahmud. I am a backend programmer and developer';
 
     }
+    putNew(): string {
+        return 'Today I will learn about put method'
+    }
+    // patch request.
+    patchreq(): string {
+        return 'Patch request update a single field'
+    }
 
+    //delete request.
+    deletereq(): string {
+        return 'It is use to delete a resource'
+    }
+
+
+//
     public async getTake(bookCreateData: CreateBookDto): Promise<string> {
 
         console.log('book create', bookCreateData)
@@ -30,9 +44,7 @@ export class BookService {
         return 'I wish I were a good backend developer and developer, I want to develop my self ';
     }
 
-    putNew(): string {
-        return 'Today I will learn about put method'
-    }
+   
 
     //create book interface
     public createBook(createBookDto: CreateBookDto): IBooks {

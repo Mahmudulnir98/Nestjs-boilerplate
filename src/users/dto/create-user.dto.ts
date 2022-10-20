@@ -47,10 +47,6 @@ export class CreateNewUserDto{
     @IsNotEmpty()
     author: string;
 
-    @IsNumber()
-    @IsNotEmpty()
-    plot: number;
-
     @IsString()
     @IsNotEmpty()
     email: string;

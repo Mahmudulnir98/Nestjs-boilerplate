@@ -2,7 +2,7 @@ import { PutBookDto } from './dto/put-book.dto';
 import { PBooks } from './interfaces/put.interface';
 import { IBooks } from './interfaces/books.interface';
 import { NBooks } from './interfaces/post.interface';
-import { Body, Controller, Get, Post, Put, Req } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Patch, Post, Put, Req } from '@nestjs/common';
 import { Request } from 'express';
 // import { AppService } from 'src/app.service';
 // import { AppService } from 'src/app.service';
@@ -22,6 +22,25 @@ export class BookController {
     getBac(): string {
         return this.BookService.getBack();
     }
+
+    //put request.
+    @Put('/put')
+    putello(): string {
+        return this.BookService.putNew();
+     }
+
+     // patch request
+     @Patch('/patch')
+     patch(): string {
+        return this.BookService.patchreq();
+     }
+
+     //delete request
+     @Delete('/delete')
+     dlt(): string {
+        return this.BookService.deletereq();
+     }
+
   
     @Post('/create')
     public async createBook(
@@ -47,11 +66,6 @@ export class BookController {
         return this.BookService.updateBook(postBookDto)
     }
  
-
-     @Put('/put')
-    putello(): string {
-        return this.BookService.putNew();
-     }
 
     @Put ('/put')
     public async putBook(

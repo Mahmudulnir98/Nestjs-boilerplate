@@ -32,13 +32,14 @@ export class UserService {
 
     }
 
-    // new create user
+   
+   
+// new create user
 
     public async createNUser(createNewUserDto: CreateNewUserDto){
         const newwUser: NUsers = {
             name: createNewUserDto.name,
             author: createNewUserDto.author,
-            plot: createNewUserDto.plot,
             email: createNewUserDto.email,
             username: createNewUserDto.username
         }

@@ -17,7 +17,6 @@ export const NUser = new Schema<NUsers>(
     {
         name: String,
         author: String,
-        plot: Number,
         email: String,
         username: String
     
