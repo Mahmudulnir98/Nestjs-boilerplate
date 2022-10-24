@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { BooksModule } from './books/book.module';
 import { UsersModule } from './users/user.module';
 import { LearnsModule } from './learns/learn.module';
+import { ShopsModule } from './shop/shop.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -23,7 +24,8 @@ import { LearnsModule } from './learns/learn.module';
     }),
     BooksModule,
     UsersModule,
-    LearnsModule
+    LearnsModule,
+    ShopsModule
   ],
   
   controllers: [AppController],
