@@ -10,12 +10,14 @@ export class ShopService {
         private readonly ShopModel: Model<IShops>
     ){}
     
- // schema add
-     public ucart( createShopDto: CreateShopDto): IShops {
+     public ucart( createShopDto: CreateShopDto): IShops {     //schema add
         const shopSchema: IShops = {
             name: createShopDto.name,
             price: createShopDto.price,
-            discount: createShopDto.discount
+            discount: createShopDto.discount,
+            size: createShopDto.size,
+            id: createShopDto.id,
+            description: createShopDto.description
         }
 
         return shopSchema

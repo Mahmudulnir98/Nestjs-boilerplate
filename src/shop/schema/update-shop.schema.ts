@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
-import { IShops } from "../interface/shop.interface";
-export const Shop = new Schema<IShops>(
+import { NShops } from "../interface/updateshop.interface";
+export const NShop = new Schema<NShops>(
     {
         name: String,
         price: Number,

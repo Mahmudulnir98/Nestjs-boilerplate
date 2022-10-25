@@ -1,4 +1,4 @@
-export interface IShops {
+export interface NShops {
     name: string;
     price: number;
     discount: number;

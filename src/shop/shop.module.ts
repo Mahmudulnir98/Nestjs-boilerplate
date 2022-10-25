@@ -12,7 +12,7 @@ import { Shop } from './schema/new-shop.schema';
     MongooseModule.forFeature(
         [
             {
-                name: 'Shop', schema: Shop
+                name: 'Shop',  schema: Shop
             }
         ]
     )
