@@ -5,12 +5,11 @@ import { Model } from 'mongoose';
 import { IUsers } from './interfaces/user.interface';
 import { PostUserDto } from './dto/post-user.dto';
 import { IPost } from './interfaces/post.interface';
-import { CreateNewUserDto } from './dto/create-user.dto';
-import { NUsers } from './interfaces/user.interface';
 @Injectable()
 export class UserService {
     constructor(
         @InjectModel('User') private readonly userModel: Model<IUsers>,
+        @InjectModel('NUser') private readonly nuserModel: Model<IPost>
 
     ){}
 
@@ -32,34 +31,37 @@ export class UserService {
 
     }
 
-   
-   
-// new create user
-
-    public async createNUser(createNewUserDto: CreateNewUserDto){
-        const newwUser: NUsers = {
-            name: createNewUserDto.name,
-            author: createNewUserDto.author,
-            email: createNewUserDto.email,
-            username: createNewUserDto.username
+    public async updateNUser(postUserDto: PostUserDto){
+        const updateNUser: IPost = {
+           name: postUserDto.name,
+           author: postUserDto.author,
+           plot: postUserDto.plot 
         }
-
-        const nuser = await this.userModel.create(newwUser)
-
+        const nuser = await this.nuserModel.create(updateNUser)
         console.log(nuser)
-
         return nuser
 
     }
 
+   
+   
 
-    public async showAllUsers(){
+
+// find method
+    public async findAll(){
         const users = await this.userModel.find()
 
         return users
     }
+
+//findOne method
+    public async findOne(
+        userId:string
+    ){
+        const nuser= await this.userModel.findById(userId)
+        return nuser
+    }
    
-    
- 
+    //uodateOne method
  
 }

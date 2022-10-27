@@ -1,10 +1,8 @@
+import { PostUserDto } from './dto/post-user.dto';
 import { PassUserDto, CreateUserDto } from './dto/create-user.dto';
 import { Body, Controller, Get, Post, Put, Req } from '@nestjs/common';
 import { UserService } from './user.service';
 import { Request } from 'express';
-import { IUsers } from './interfaces/user.interface';
-import { PostUserDto } from './dto/post-user.dto';
-import { CreateNewUserDto } from './dto/create-user.dto';
 
 // import { AppService } from 'src/app.service';
 // import { AppService } from 'src/app.service';
@@ -12,15 +10,7 @@ import { CreateNewUserDto } from './dto/create-user.dto';
 export class UserController {
     constructor(private readonly userService: UserService, ) {}
         
-        //find all users
-        @Get('/get')
-        public async showAllUsers(){
-            const users = await this.userService.showAllUsers()
-
-            return users
-        }
-
-
+       
         //create user route 
         @Post('/create')
         public async createUser(
@@ -33,16 +23,33 @@ export class UserController {
         }
 
         //new create user  post request data into database.
-
-        @Post('/newcreate')
-        public async createNUser(
+        @Post('/update')
+        public async updateNUser(
             @Req() req: Request,
-            @Body() createNewUserDto: CreateNewUserDto
+            @Body() postUserDto: PostUserDto
         ){
-            const nuser = await this.userService.createNUser(createNewUserDto)
-
+            const nuser = await this.userService.updateNUser(postUserDto)
             return nuser
         }
+
+
+
+
+         //find all users
+         @Get('/get')
+         public async findall(){
+             const users = await this.userService.findAll()
+ 
+             return users
+         }
     
-    
+
+   @Get('/got')
+   public async findone(
+    userId: string
+   ){
+    const nuser = await this.userService.findOne(userId)
+    return nuser
+
+   }
     }

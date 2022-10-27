@@ -38,22 +38,5 @@ export class CreateUserDto{
 
 }
 
-export class CreateNewUserDto{
-    @IsString()
-    @IsNotEmpty() 
-    name: string;
 
-    @IsString()
-    @IsNotEmpty()
-    author: string;
-
-    @IsString()
-    @IsNotEmpty()
-    email: string;
-
-    @IsString()
-    @IsNotEmpty()
-    username: string
-
-}
 
