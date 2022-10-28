@@ -48,8 +48,7 @@ export class UserController {
    public async findOne(
         @Param('userId') userId:string
     ){
-    const users = await this.userService.findOne(userId)
-    return users
-
+    const user = await this.userService.findOne(userId)
+    return user
    }
     }
