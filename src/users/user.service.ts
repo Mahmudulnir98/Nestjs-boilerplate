@@ -3,13 +3,11 @@ import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { IUsers } from './interfaces/user.interface';
-import { PostUserDto } from './dto/post-user.dto';
-import { IPost } from './interfaces/post.interface';
+import { UpdateUserDto } from './dto/update-user.dto';
 @Injectable()
 export class UserService {
     constructor(
-        @InjectModel('User') private readonly userModel: Model<IUsers>,
-        @InjectModel('NUser') private readonly nuserModel: Model<IPost>
+     @InjectModel('User') private readonly userModel: Model<IUsers>,
 
     ){}
 
@@ -30,23 +28,22 @@ export class UserService {
         return user
 
     }
-
-    public async updateNUser(postUserDto: PostUserDto){
-        const updateNUser: IPost = {
-           name: postUserDto.name,
-           author: postUserDto.author,
-           plot: postUserDto.plot 
+//
+    public async updateUser(updateUserDto: UpdateUserDto){
+        const updateUser: IUsers = {
+           name: updateUserDto.name,
+           author: updateUserDto.author,
+           plot: updateUserDto.plot,
+           email: updateUserDto.email,
+           username: updateUserDto.username 
         }
-        const nuser = await this.nuserModel.create(updateNUser)
-        console.log(nuser)
-        return nuser
+        const user = await this.userModel.updateOne(updateUser)
+        console.log(user)
+        return user
 
     }
 
    
-   
-
-
 // find method
     public async findAll(){
         const users = await this.userModel.find()
@@ -58,8 +55,8 @@ export class UserService {
     public async findOne(
         userId:string
     ){
-        const nuser= await this.userModel.findById(userId)
-        return nuser
+        const user= await this.userModel.findById(userId)
+        return user
     }
    
     //uodateOne method

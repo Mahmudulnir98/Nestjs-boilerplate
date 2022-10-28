@@ -1,8 +1,8 @@
-import { PostUserDto } from './dto/post-user.dto';
-import { PassUserDto, CreateUserDto } from './dto/create-user.dto';
-import { Body, Controller, Get, Post, Put, Req } from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto';
+import { Body, Controller, Get, Param, Post, Put, Req } from '@nestjs/common';
 import { UserService } from './user.service';
 import { Request } from 'express';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 // import { AppService } from 'src/app.service';
 // import { AppService } from 'src/app.service';
@@ -22,14 +22,14 @@ export class UserController {
             return user
         }
 
-        //new create user  post request data into database.
+        //update user  post request data into database.
         @Post('/update')
-        public async updateNUser(
+        public async updateUser(
             @Req() req: Request,
-            @Body() postUserDto: PostUserDto
+            @Body() updateUserDto: UpdateUserDto
         ){
-            const nuser = await this.userService.updateNUser(postUserDto)
-            return nuser
+            const user = await this.userService.updateUser(updateUserDto)
+            return user
         }
 
 
@@ -44,12 +44,12 @@ export class UserController {
          }
     
 
-   @Get('/got')
-   public async findone(
-    userId: string
-   ){
-    const nuser = await this.userService.findOne(userId)
-    return nuser
+   @Get('/:userId')
+   public async findOne(
+        @Param('userId') userId:string
+    ){
+    const users = await this.userService.findOne(userId)
+    return users
 
    }
     }

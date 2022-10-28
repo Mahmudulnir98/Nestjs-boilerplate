@@ -1,6 +1,7 @@
 import { IsString, IsNotEmpty, IsNumber } from "class-validator";
 
-export class PostUserDto {
+
+export class UpdateUserDto{
     @IsString()
     @IsNotEmpty() 
     name: string;
@@ -11,8 +12,14 @@ export class PostUserDto {
 
     @IsNumber()
     @IsNotEmpty()
-    plot: number
+    plot: number;
 
+    @IsString()
+    @IsNotEmpty()
+    email: string;
 
+    @IsString()
+    @IsNotEmpty()
+    username: string
 
 }
