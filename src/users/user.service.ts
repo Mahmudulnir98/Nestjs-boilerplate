@@ -30,14 +30,14 @@ export class UserService {
     }
 //
     public async updateUser(updateUserDto: UpdateUserDto){
-        const newUser: IUsers = {
+        const updateUser: IUsers = {
            name: updateUserDto.name,
            author: updateUserDto.author,
            plot: updateUserDto.plot,
            email: updateUserDto.email,
            username: updateUserDto.username 
         }
-        const user = await this.userModel.updateOne(newUser)
+        const user = await this.userModel.updateOne(updateUser)
         console.log(user)
         return user
 
