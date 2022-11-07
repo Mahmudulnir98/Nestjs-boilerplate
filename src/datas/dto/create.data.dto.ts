@@ -1,6 +1,6 @@
 import { IsString, IsNotEmpty, IsNumber } from 'class-validator';
 
-export class CreateUserDto {
+export class CreateDataDto {
   @IsString()
   @IsNotEmpty()
   name: string;

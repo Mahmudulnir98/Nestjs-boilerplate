@@ -1,4 +1,4 @@
-export interface IUsers {
+export interface Datas {
   name: string;
   author: string;
   plot: number;

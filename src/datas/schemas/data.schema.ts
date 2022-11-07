@@ -1,7 +1,7 @@
 import { Schema } from 'mongoose';
-import { IUsers } from '../interfaces/user.interface';
+import { Datas } from '../interfaces/data.interface';
 
-export const User = new Schema<IUsers>({
+export const Data = new Schema<Datas>({
   name: String,
   author: String,
   plot: Number,

@@ -1,24 +1,23 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { DataService } from './data.service';
+import { DataController } from './data.controller';
+import { Data } from './schemas/data.schema';
 //import { AppController } from './app.controller';
 //import { AppService } from './app.service';
-import { LearnService } from './learn.service';
-import { LearnController } from './learn.controller';
-import { Learn } from './schemas/learn.schema';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       {
-        name: 'Learn',
-        schema: Learn,
+        name: 'Data',
+        schema: Data,
       },
     ]),
   ],
 
-  controllers: [LearnController],
-  providers: [LearnService],
+  controllers: [DataController],
+  providers: [DataService],
 })
-export class LearnsModule {}
-//schema add
+export class DatasModule {}

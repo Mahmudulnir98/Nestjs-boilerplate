@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import {ConfigModule, ConfigService} from '@nestjs/config'
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -7,10 +7,11 @@ import { BooksModule } from './books/book.module';
 import { UsersModule } from './users/user.module';
 import { LearnsModule } from './learns/learn.module';
 import { ShopsModule } from './shop/shop.module';
+import { DatasModule } from './datas/data.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal : true
+      isGlobal: true,
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
@@ -25,11 +26,11 @@ import { ShopsModule } from './shop/shop.module';
     BooksModule,
     UsersModule,
     LearnsModule,
-    ShopsModule
+    ShopsModule,
+    DatasModule,
   ],
-  
+
   controllers: [AppController],
   providers: [AppService],
-  
 })
 export class AppModule {}

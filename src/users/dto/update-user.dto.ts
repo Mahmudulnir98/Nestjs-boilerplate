@@ -1,25 +1,23 @@
-import { IsString, IsNotEmpty, IsNumber } from "class-validator";
+import { IsString, IsNotEmpty, IsNumber } from 'class-validator';
 
+export class UpdateUserDto {
+  @IsString()
+  @IsNotEmpty()
+  name: string;
 
-export class UpdateUserDto{
-    @IsString()
-    @IsNotEmpty() 
-    name: string;
+  @IsString()
+  @IsNotEmpty()
+  author: string;
 
-    @IsString()
-    @IsNotEmpty()
-    author: string;
+  @IsNumber()
+  @IsNotEmpty()
+  plot: number;
 
-    @IsNumber()
-    @IsNotEmpty()
-    plot: number;
+  @IsString()
+  @IsNotEmpty()
+  email: string;
 
-    @IsString()
-    @IsNotEmpty()
-    email: string;
-
-    @IsString()
-    @IsNotEmpty()
-    username: string
-
+  @IsString()
+  @IsNotEmpty()
+  username: string;
 }
